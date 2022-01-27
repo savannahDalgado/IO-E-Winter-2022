@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>Media Motion and the Body 2022</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+<style>
+    body,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5 {
+        font-family: "Poppins", sans-serif
+    }
+    
+    body {
+        font-size: 16px;
+    }
+    
+    h1 {
+        font-size: 30px;
+    }
+    
+    h2 {
+        font-size: 25px;
+    }
+    
+    h3 {
+        font-size: 18px;
+    }
+    
+    img {
+        width: 100%;
+        height: 100%;
+    }
+    
+    .grid {
+        display: inline-grid;
+        grid-template-columns: auto auto auto auto auto;
+    }
+    
+    .w3-half img {
+        margin-bottom: -6px;
+        margin-top: 16px;
+        opacity: 0.8;
+        cursor: pointer
+    }
+    
+    */ .w3-half img:hover {
+        opacity: 1
+    }
+    
+    .container {
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+        padding-top: 56.25%;
+        /* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) */
+    }
+    
+    .responsive-iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+    }
+    
+    .pad {
+        height: 30px;
+    }
+
+</style>
+
+<body>
+
+    <!-- Sidebar/menu -->
+    <nav class="w3-sidebar w3-light-grey w3-collapse w3-top w3-large w3-padding" style="z-index:3;width:200px;font-weight:bold;" id="mySidebar">
+        <br>
+        <a href="javascript:void(0)" onclick="w3_close()" class="w3-button w3-display-topleft" style="display:none;font-size:22px"></a>
+        <div class="w3-container">
+            <h3 class="w3-padding-64"><b>IXD<br>DESN 37900 <br> Winter-2022</b></h3>
+        </div>
+        <div class="w3-bar-block">
+            <a href="#Home" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Home</a>
+            <a href="#Project1" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Project 1</a>
+            <a href="#Week1" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">P1. Week 1</a>
+            <a href="#Week2" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">P1. Week 2</a>
+            <a href="#Week3" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">P1. Week 3</a>
+            <a href="#Project2" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Project 2</a>
+            <a href="#Week5" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">P2. Week 5</a>
+            <a href="#Week6" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">P2. Week 6</a>
+            <a href="#Week7" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">P2. Week 7</a>
+            <a href="#Project3" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Project 3</a>
+            <a href="#Week9" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">P3. Week 9</a>
+            <a href="#Week10" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">P3. Week 10</a>
+            <a href="#Week11" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">P3. Week 11</a>
+        </div>
+    </nav>
+
+    <!-- Top menu on small screens
+<header class="w3-container w3-top w3-xlarge w3-padding">
+  <a href="javascript:void(0)" class="w3-button w3-red w3-margin-right" onclick="w3_open()">☰</a>
+  <span>Menu</span>
+</header> -->
+
+    <!-- 
+  if you want to link your image to a video use one of the following alt links as an example:
+
+  alt="test1Lorem ipsum dolor sit amet, consectetur adipiscing elit test1Lorem ipsum dolor sit amet, consectetur adipiscing elit <a href='https://www.youtube.com/embed/tgbNymZ7vqY' target='_blank'><p>Project Video Link</p></a>"> 
+  alt="test2Lorem ipsum dolor sit amet, consectetur adipiscing elit <div class='container'><iframe class='responsive-iframe' src='https://www.youtube.com/embed/tgbNymZ7vqY'></iframe></div>">
+
+-->
+
+    <!-- Overlay effect when opening sidebar on small screens -->
+    <div class="w3-overlay" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+    <!-- !PAGE CONTENT! -->
+    <div class="w3-main" style="margin-left:220px;margin-right:20px">
+
+        <!-- Header -->
+        <div class="w3-container" style="margin-top:80px" id="default">
+            <h1 class="w3-jumbo" id="Home"><b>Course Work Deliverable</b></h1>
+            <h1 class="w3-xxxlarge w3-text-blue"><b>Savi's assignment template</b></h1>
+            <h1 class="w3-xxxlarge w3-text-blue"><b>Savannah Dalgado</b></h1>
+            <hr style="width:50px;border:5px solid grey" class="w3-round">
+        </div>
+        <!-- Boilerplate -->
+        <div id="Project1" class="w3-container" style="margin-top:75px">
+            <h1 class="w3-xxxlarge w3-text-red"><b>Project 1</b></h1>
+            <hr style="width:50px;border:5px solid red" class="w3-round">
+            <h2>Project 1 - Formstorming</h2>
+            <h3>When starting this project, I was a little confused on where I should start and what kind of iterations I should go with. When exploring with teachable machines and p5, I learned how to impletment gifs into p5 successfully, and I learned just how sensitive the object recognition is on the Teachable Machines website. I tried to go past my comfort zone, and a couple times it didn't totally work out but I'm still glad that I tried nonetheless. For one of my objects my plan was to use my tamagotchi, but I ended up using photos I found online instead and showed them to the camera from my phone as it was easier for the AI to read what images were displayed as opposed to the tiny tamagotchi screen. The rest of my objects were figurines that I have collected over the years from TV shows and movies that I enjoy. 
+    </h3>
+        </div>
+
+        <!-- Project 1 Photo grid (modal) -->
+        <div id="Week1">
+            <h2>Week 1</h2>
+            <div class="pad"></div>
+            <h4>Object Photos</h4>
+            <div class="pad"></div>
+            <div class="grid">
+                <img src="images/Wk_01/appa.JPG" style="width:100%" onclick="onClick(this)" alt="object 1">
+                <img src="images/Wk_01/bmo.JPG" style="width:100%" onclick="onClick(this)" alt="object 2">
+                <img src="images/Wk_01/inosuke.JPG" style="width:100%" onclick="onClick(this)" alt="object 3">
+                <img src="images/Wk_01/miles.JPG" style="width:100%" onclick="onClick(this)" alt="object 4">
+                <img src="images/Wk_01/tama.PNG" style="width:100%" onclick="onClick(this)" alt="object 5">
+            </div>
+            <div class="pad"></div>
+            <h4>Iterations</h4>
+            <div class="pad"></div>
+            <div class="grid">
+                <img src="images/Wk_01/test1.gif" style="width:100%" onclick="onClick(this)" alt="object shows gif gif from: https://www.icegif.com/wp-content/uploads/miles-morales-icegif.gif">
+                <img src="images/Wk_01/test2.gif" style="width:100%" onclick="onClick(this)" alt="object shows gif pt 2 gif from:https://media0.giphy.com/media/CaiVJuZGvR8HK/giphy.gif">
+                <img src="images/Wk_01/test3.gif" style="width:100%" onclick="onClick(this)" alt="swapping objects back and forth to show two different gifs">
+                <img src="images/Wk_01/test4.png" style="width:100%" onclick="onClick(this)" alt="attempted to hide previous gif to avoid image stacking in previous test but it didnt work">
+                <img src="images/Wk_01/test5.gif" style="width:100%" onclick="onClick(this)" alt="object effecting image transparency image from:https://www.sideshow.com/storage/product-images/500707F/ultimate-spider-man-miles-morales_marvel_feature.jpg">
+
+                <img src="images/Wk_01/test6.gif" style="width:100%" onclick="onClick(this)" alt="multiple objects effecting image transparency (like selecting the image)images from: https://www.kindpng.com/picc/m/153-1532932_peppermint-drawing-adventure-time-cute-bmo-adventure-time.png   https://i.pinimg.com/originals/e4/79/cd/e479cdb0ced14f53a8399f45ca65eb4d.png">
+                <img src="images/Wk_01/test7.png" style="width:100%" onclick="onClick(this)" alt="code for image transparency, had to play around with where to place the tints">
+                <img src="images/Wk_01/test8.gif" style="width:100%" onclick="onClick(this)" alt="object attaches images to cursor image from:https://static.wikia.nocookie.net/mua/images/0/06/Img_0021_miles_mout.obj.png/revision/latest?cb=20200207030408">
+                <img src="images/Wk_01/test9.gif" style="width:100%" onclick="onClick(this)" alt="multiple objects attach images to cursor image from:http://assets.stickpng.com/images/5c80f26472f5d9028c17ecd7.png">
+                <img src="images/Wk_01/test10.png" style="width:100%" onclick="onClick(this)" alt="code to attach image to cursor">
+
+                <img src="images/Wk_01/test11.gif" style="width:100%" onclick="onClick(this)" alt="object effects colour of ellipse">
+                <img src="images/Wk_01/test12.png" style="width:100%" onclick="onClick(this)" alt="code for object to effect ellipse">
+                <img src="images/Wk_01/test13.gif" style="width:100%" onclick="onClick(this)" alt="I tried teaching the machine with just the pngs of the tamagotchi, but it had a lot of difficulty recognizing what was on my screen as a result">
+                <img src="images/Wk_01/test14.gif" style="width:100%" onclick="onClick(this)" alt="I retried by teaching it by showing the images on my phone and it worked a lot better, however the thinking and poop images were very similar so it had some trouble with those">
+                <img src="images/Wk_01/test15.png" style="width:100%" onclick="onClick(this)" alt="still image of it recognizing the object image from:https://martianalphabet.files.wordpress.com/2013/02/tamagotchi_20130223163059.png">
+
+                <img src="images/Wk_01/test16.png" style="width:100%" onclick="onClick(this)" alt="still image of it recognizing the object image from:https://martianalphabet.files.wordpress.com/2013/02/tamagotchi_20130224134707.png">
+                <img src="images/Wk_01/test17.png" style="width:100%" onclick="onClick(this)" alt="still image of it recognizing the object image from:https://martianalphabet.files.wordpress.com/2013/02/tamagotchi_20130224082744.png">
+                <img src="images/Wk_01/test18.png" style="width:100%" onclick="onClick(this)" alt="I eventually had to make me the base reference object for it to sense the others">
+                <img src="images/Wk_01/test19.png" style="width:100%" onclick="onClick(this)" alt="object recognition with text change">
+                <img src="images/Wk_01/test20.png" style="width:100%" onclick="onClick(this)" alt="object recognition with text change">
+
+                <img src="images/Wk_01/test21.png" style="width:100%" onclick="onClick(this)" alt="object recognition with text change">
+                <img src="images/Wk_01/test22.png" style="width:100%" onclick="onClick(this)" alt="object recognition with tint change">
+                <img src="images/Wk_01/test23.png" style="width:100%" onclick="onClick(this)" alt="object recognition with tint change">
+                <img src="images/Wk_01/test24.png" style="width:100%" onclick="onClick(this)" alt="object recognition with tint change">
+                <video controls width="100%" alt="object recognition with sound">
+                    <source src="images/Wk_01/test25.mp4" type="video/mp4"> </video>
+            </div>
+        </div>
+
+        <hr style="width:90%;border:5px solid grey;margin-top:80px" class="w3-round"></hr>
+
+        <div id="Week2" class="w3-row-padding">
+            <h2>Week 2</h2>
+            <div class="grid">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="test2Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="test3Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="test2Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="test3Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="test2Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="test3Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+            </div>
+        </div>
+
+        <hr style="width:90%;border:5px solid grey;margin-top:80px" class="w3-round"> </hr>
+
+        <div id="Week3" class="w3-row-padding">
+            <h2>Week 3</h2>
+            <div class="grid">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="test2Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="test3Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="test2Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="test3Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="test2Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="test3Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+            </div>
+        </div>
+
+        <!-- Boilerplate -->
+        <div id="Project2" class="w3-container" style="margin-top:75px">
+            <h1 class="w3-xxxlarge w3-text-red"><b>Project 2</b></h1>
+            <hr style="width:50px;border:5px solid red" class="w3-round">
+            <h2>Title of Project 2</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+        </div>
+
+        <!-- Project 2 Photo grid (modal) -->
+        <div id="Week5" class="w3-row-padding">
+            <h2>Week 5</h2>
+            <div class="grid">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="test2Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="test3Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="test2Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="test3Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="test2Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="test3Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+            </div>
+        </div>
+
+        <hr style="width:90%;border:5px solid grey;margin-top:80px" class="w3-round"></hr>
+
+        <div id="Week6" class="w3-row-padding">
+            <h2>Week 6</h2>
+            <div class="grid">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="test2Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="test3Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="test2Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="test3Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="test2Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="test3Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+            </div>
+        </div>
+
+        <hr style="width:90%;border:5px solid grey;margin-top:80px" class="w3-round"></hr>
+
+        <div id="Week7" class="w3-row-padding">
+            <h2>Week 7</h2>
+            <div class="grid">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="test2Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="test3Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="test2Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="test3Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="test2Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="test3Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+            </div>
+        </div>
+
+        <!-- Boilerplate -->
+        <div id="Project3" class="w3-container" id="services" style="margin-top:75px">
+            <h1 class="w3-xxxlarge w3-text-red"><b>Project 3</b></h1>
+            <hr style="width:50px;border:5px solid red" class="w3-round">
+            <h2>Title of Project 3</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+        </div>
+
+        <!-- Project 3 Photo grid (modal) -->
+        <div id="Week9" class="w3-row-padding">
+            <h2>Week 9</h2>
+            <div class="grid">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="test2Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="test3Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="test2Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="test3Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="test2Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="test3Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+            </div>
+        </div>
+
+        <hr style="width:90%;border:5px solid grey;margin-top:80px" class="w3-round"></hr>
+
+        <div id="Week10" class="w3-row-padding">
+            <h2>Week 10</h2>
+            <div class="grid">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="test2Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="test3Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="test2Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="test3Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="test2Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="test3Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+            </div>
+        </div>
+
+        <hr style="width:90%;border:5px solid grey;margin-top:80px" class="w3-round"></hr>
+
+
+        <div id="Week11" class="w3-row-padding">
+            <h2>Week 11</h2>
+            <div class="grid">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="test2Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="test3Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="test2Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="test3Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="test2Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="test3Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+                <img src="images/Wk_01/happy.png" style="width:100%" onclick="onClick(this)" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit">
+            </div>
+        </div>
+
+        <!-- Modal for full size images on click-->
+        <div id="modal01" class="w3-modal w3-grey" style="padding-top:0" onclick="this.style.display='none'">
+            <span class="w3-button w3-black w3-xxlarge w3-display-topright">×</span>
+            <div class="w3-modal-content w3-center w3-transparent" style="padding:20px">
+                <img id="img01" class="w3-image">
+                <h2 id="caption"></h2>
+
+                <!-- <div id="urLink"></div> -->
+                <!-- <a id="urLink" class="container"><iframe class="responsive-iframe"></iframe></a> -->
+                <!-- </div> -->
+            </div>
+            <!-- End page content -->
+        </div>
+
+        <!-- W3.CSS Container -->
+        <div class="w3-light-grey w3-container w3-padding-32" style="margin-top:75px;padding-right:58px">
+            <p class="w3-right">Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-opacity">w3.css</a></p>
+        </div>
+
+        <script>
+            // Modal Image Gallery
+            function onClick(element) {
+                document.getElementById("img01").src = element.src;
+
+                document.getElementById("modal01").style.display = "block";
+                var captionText = document.getElementById("caption");
+                captionText.innerHTML = element.alt;
+
+                // var captionUrl = document.getElementById("urLink");
+                // captionUrl.innerHTML = element.url;
+
+                //document.getElementById("urLink").src = element.url;
+            }
+
+        </script>
+
+</body>
+
+</html>
